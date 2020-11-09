@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        cruddy
+    </title>
+</head>
+<body>
+    <form>
+        <label for="inputText">Please write something</label>
+        <input type="text" name="inputText" id="inputText">
+        <button type="button" onclick="add()">Add</button>
+    </form>
+    <form>
+        <label for="editNumber">Edit which list item (number)? Update with what text?</label>
+        <input type="number" name="editNumber" id="editNumber">
+        <input type="text" name="editText" id="editText">
+        <button type="button" onclick="update()">Update</button>
+    </form>
+    <form>
+        <label for="delete">Delete which list item (number)?</label>
+        <input type="number" name="delete" id="delete">
+        <button type="button" onclick="deleteItem()">Delete</button>
+    </form>
+
+    <ol id="list">
+
+    </ol>
+
+
+</body>
+
+<script>
+    var array = [];
+    var count = 0;
+    var list = document.getElementById("list");
+    var elementArray = [];
+
+    function add(){
+        var userInput = document.getElementById("inputText").value;
+        array.push(userInput);
+
+        // create array of newElements??
+        var newElement;
+        newElement = document.createElement("li");
+
+        // undo marker
+        elementArray.push(newElement);
+        newElement.innerHTML = array[count];
+        list.appendChild(newElement);
+
+        // this will defo throw up bugs with regards to DELETING later
+        count++;
+    }
+
+    function update(){
+        var updateElement = document.createElement("li");
+        updateElement.innerHTML = document.getElementById("editText").value;
+        var updateNumber = document.getElementById("editNumber").value;
+        list.replaceChild(updateElement, list.children[updateNumber-1]);
+    }
+
+    function deleteItem(){
+        var deleteNumber = document.getElementById("delete").value;
+        list.removeChild(list.children[deleteNumber-1]);
+    }
+
+</script>

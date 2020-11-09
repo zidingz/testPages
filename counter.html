@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+ <head>
+<title>this is goagain</title>
+<link rel="stylesheet" href="goagain.css">
+ </head>
+<body>
+    
+    <h1 class="class1">
+        testing 123
+    </h1>
+    <p>
+        <b>here's some filler text</b>
+    </p>
+    <p class="class1">
+        you are what
+    </p>
+    <button onclick="myfunction()">
+        click to see what happens
+    </button>
+    <button onclick="reshow()">
+        We back?
+    </button>
+
+    <button onclick="increase()">
+        +1
+    </button>
+    <button onclick="decrease()">
+        -1
+    </button>
+
+<!-- look here -->
+
+    <p id="counter">
+        this is to be changed
+    </p>
+
+</body>
+
+<script>
+function myfunction(){
+    var x = document.getElementsByClassName("class1");
+    for (var i = 0; i < x.length; i++){
+        x[i].style.visibility = "hidden";
+    }
+}
+
+function reshow(){
+    var x = document.getElementsByClassName("class1");
+    for (var i = 0; i < x.length; i++){
+        x[i].style.visibility = "visible";
+    }
+}
+
+var counter = 0;
+function increase(){
+    counter++;
+    document.getElementById("counter").innerHTML = counter;
+}
+function decrease(){
+    if (counter > 0){
+        counter--;
+        document.getElementById("counter").innerHTML = counter;
+    }
+    
+}
+</script>

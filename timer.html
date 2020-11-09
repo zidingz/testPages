@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+    <title>
+        Time Timer
+    </title>
+</head>
+
+<body>
+    <button type="button" onclick="startTimer()">
+        Start Timer
+    </button>
+    <button type="button" onclick="stop()">
+        Stop Timer
+    </button>
+    <p id="secondTimer">
+        0
+    </p>
+
+    <p id="test">
+        let me understand this shit
+    </p>
+</body>
+
+<script>
+    var time = 0;
+    var start = true;
+
+    function startTimer() {
+        start = true
+        setInterval(printTime, 1000)
+    }
+    function stop() {
+        start = false;
+    }
+    
+    function printTime() {
+        if (start == true) {
+            time = time + 1;
+            document.getElementById("secondTimer").innerHTML = time;
+        }
+    }
+    
+
+
+
+</script>
